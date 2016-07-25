@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
@@ -28,7 +28,7 @@ class User extends Model implements AuthenticatableContract,
      *
      * @var array
      */
-    protected $fillable = ['name', 'email', 'password'];
+    protected $fillable = ['id','username','name', 'email', 'password'];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -37,6 +37,20 @@ class User extends Model implements AuthenticatableContract,
      */
     protected $hidden = ['password', 'remember_token'];
 
+    /**
+     * Get the unique identifier for the user.
+     *
+     * @return mixed
+     */
+
+    public static function createBySocialProvider($providerUser)
+    {
+        return self::create([
+            'email' => $providerUser->getEmail(),
+            'username' => $providerUser->getNickname(),
+            'name' => $providerUser->getName(),
+        ]);
+    }
     /**
      * Get the unique identifier for the user.
      *

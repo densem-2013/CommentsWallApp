@@ -144,7 +144,9 @@ return [
         App\Providers\AuthServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        SocialiteProviders\Manager\ServiceProvider::class, // Добавляем,
+        Laravel\Socialite\SocialiteServiceProvider::class,
+        //SocialiteProviders\Manager\ServiceProvider::class, // Добавляем,
+        Zawntech\Laravel\KnockoutViews\KnockoutServiceProvider::class,
 
     ],
 
@@ -193,6 +195,9 @@ return [
         'URL'       => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
+        'Knockout' => Zawntech\Laravel\KnockoutViews\KnockoutFacade::class,
+        'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+        //'Socialite' => SocialiteProviders\Manager\ServiceProvider::class,
 
     ],
 

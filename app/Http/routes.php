@@ -11,6 +11,19 @@
 |
 */
 
+use Illuminate\Support\Facades\Auth;
+
 Route::get('/', function () {
-    return view('welcome');
-});
+        return view('welcome');
+    });
+
+    Route::get('blog', function () {
+
+        $reg=(Auth::check())? "Registered!!!":"Not yield registered ):";
+        return view('blog',['reg'=>$reg]);
+    });
+    Route::get('/social_login/{provider}', 'SocialController@login');
+
+    Route::get('/social_login/callback/{provider}', 'SocialController@callback');
+
+?>

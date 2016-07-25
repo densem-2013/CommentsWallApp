@@ -1,0 +1,25 @@
+
+html, body {
+    height: 100%;
+}
+
+.container {
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.content {
+    text-align: center;
+    display: inline-block;
+}
+
+.title {
+    font-size: 96px;
+}
+#wrapper{
+    margin-top: 70px ;
+}
+.nav.navbar-nav li{
+    padding: 5px;
+}
